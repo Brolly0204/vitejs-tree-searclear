@@ -152,7 +152,7 @@ const tree = [
     child: [],
   },
 ];
-
+// 子节点查找 找不到回溯
 const findChild = (list = [], childs = []) => {
   let defNode = null;
   for (let i = 0; i < list.length; i++) {
@@ -164,6 +164,7 @@ const findChild = (list = [], childs = []) => {
     if (defNode && defNode.type === 3) {
       return defNode;
     }
+    // 回溯
     childs.pop();
   }
 };
@@ -192,3 +193,21 @@ const searchTree = (tree) => {
   console.log('searchTree', nNode, expands);
 };
 searchTree(tree);
+
+
+// 只考虑每层第一个节点 查找到底
+// const findDefSelectedNode = (tree = []) => {
+    //   let defNode = null
+    //   const expandedKeys = []
+    //   const find = (node) => {
+    //     if (node && node.child && node.child.length) {
+    //       expandedKeys.push(node.tid)
+    //       return find(node.child[0])
+    //     }
+    //     return node
+    //   }
+    //   if (tree[0]) {
+    //     defNode = find(tree[0])
+    //   }
+    //   return { node: defNode, expandedKeys }
+    // }
